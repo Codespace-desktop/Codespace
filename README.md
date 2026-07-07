@@ -383,7 +383,7 @@ Having trouble? Questions about organizing your project files and folders or set
 
 📧 **[codespacesupport@gmail.com](mailto:codespacesupport@gmail.com)**
 
-🌐 **[codespaceapp.com](https://codespace-desktop.github.io/Codespace/)**
+🌐 **[codespace-desktop.github.io/Codespace/](https://codespace-desktop.github.io/Codespace/)**
 
 📖 **[Full Documentation](https://codespace-desktop.github.io/Codespace/docs.html)**
 
