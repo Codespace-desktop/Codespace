@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /removeUser.html
+
+Sitemap: https://codespace-desktop.github.io/Codespace/sitemap.xml
