@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Step-by-step guide to organizing project files and folders, managing multiple coding projects in Python, Java, JavaScript, C++ and more, and automating tasks in Windows using Codespace." />
+<meta name="keywords" content="manage multiple coding projects, organize project files and folders, automate tasks in Windows, automate tasks with Python, software project directory structure, software development folder structure, handling multiple projects simultaneously, organize programming projects, codespace documentation" />
+<meta name="robots" content="index, follow" />
+<meta name="author" content="Codespace" />
+<title>Codespace Docs — Manage Multiple Coding Projects &amp; Automate Tasks on Windows</title>
+
+<!-- Canonical -->
+<link rel="canonical" href="https://codespace-desktop.github.io/Codespace/docs.html" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://codespace-desktop.github.io/Codespace/docs.html" />
+<meta property="og:site_name" content="Codespace" />
+<meta property="og:title" content="Codespace Docs — How to Organize &amp; Manage Multiple Coding Projects" />
+<meta property="og:description" content="Learn how to organize project files and folders, manage multiple coding projects across Python, Java, JavaScript, C++ and more, and automate tasks in Windows using Codespace." />
+<meta property="og:image" content="og-docs.svg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:type" content="image/svg+xml" />
+<meta property="og:image:alt" content="Codespace Documentation — Manage Multiple Coding Projects on Windows" />
+<meta property="og:locale" content="en_US" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Codespace Docs — Manage Multiple Coding Projects &amp; Automate Tasks on Windows" />
+<meta name="twitter:description" content="Step-by-step guide to organizing project files, managing multiple coding projects, and automating tasks in Windows." />
+<meta name="twitter:image" content="og-docs.svg" />
+<meta name="twitter:image:alt" content="Codespace Documentation" />
+
+<!-- Schema.org JSON-LD (TechArticle) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "How to Organize & Manage Multiple Coding Projects with Codespace",
+  "description": "Complete documentation for Codespace — organize project files and folders, manage multiple coding projects simultaneously in Python, Java, JavaScript, C++ and more, and automate tasks in Windows.",
+  "author": { "@type": "Organization", "name": "Codespace" },
+  "publisher": { "@type": "Organization", "name": "Codespace", "email": "codespacesupport@gmail.com" },
+  "url": "https://codespace-desktop.github.io/Codespace/docs.html",
+  "about": {
+    "@type": "SoftwareApplication",
+    "name": "Codespace",
+    "operatingSystem": "Windows 10, Windows 11",
+    "applicationCategory": "DeveloperApplication"
+  }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+<style>
+  :root{
+    --void:#1a1a1a;
+    --panel:#282828;
+    --panel-2:#1e1e1e;
+    --line:#3a3a3a;
+    --line-soft:#2a2a2a;
+    --ink:#f0f0f0;
+    --mute:#a0a0a0;
+    --mute-dim:#666666;
+    --signal:#0054cc;
+    --signal-soft:rgba(0,84,204,0.14);
+    --signal-line:rgba(0,84,204,0.45);
+    --good:#5FD9A4;
+    --warn:#f0a830;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--void);color:var(--ink);font-family:'Inter',sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;}
+  img{display:block;max-width:100%;}
+  a{color:inherit;text-decoration:none;}
+  h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:600;letter-spacing:-0.01em;line-height:1.2;}
+  .mono{font-family:'JetBrains Mono',monospace;}
+
+  /* NAV */
+  .nav{position:sticky;top:0;z-index:50;background:rgba(26,26,26,0.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line-soft);}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;max-width:1280px;margin:0 auto;padding:0 32px;}
+  .brand{display:flex;align-items:center;gap:10px;}
+  .brand img{width:28px;height:auto;}
+  .brand span{font-family:'JetBrains Mono',monospace;font-weight:600;font-size:0.95rem;letter-spacing:0.04em;}
+  .navlinks{display:flex;align-items:center;gap:32px;}
+  .navlinks a{font-size:0.9rem;color:var(--mute);transition:color .15s;}
+  .navlinks a:hover,.navlinks a.active{color:var(--ink);}
+  .nav-cta .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:8px;font-family:'JetBrains Mono',monospace;font-size:0.84rem;font-weight:500;background:var(--signal);color:#fff;border:none;cursor:pointer;}
+  .nav-cta .btn:hover{opacity:0.9;}
+  @media(max-width:760px){.navlinks{display:none;}}
+
+  /* PAGE LAYOUT */
+  .page-wrap{max-width:1280px;margin:0 auto;padding:0 32px;display:flex;gap:0;}
+
+  /* SIDEBAR */
+  .sidebar{
+    width:260px;flex-shrink:0;
+    position:sticky;top:68px;
+    height:calc(100vh - 68px);
+    overflow-y:auto;
+    padding:32px 0 48px;
+    border-right:1px solid var(--line-soft);
+    scrollbar-width:thin;
+    scrollbar-color:var(--line) transparent;
+  }
+  .sidebar::-webkit-scrollbar{width:4px;}
+  .sidebar::-webkit-scrollbar-thumb{background:var(--line);border-radius:4px;}
+
+  .sidebar-section{margin-bottom:28px;padding:0 20px 0 24px;}
+  .sidebar-label{
+    font-family:'JetBrains Mono',monospace;font-size:0.68rem;
+    letter-spacing:0.12em;text-transform:uppercase;
+    color:var(--mute-dim);margin-bottom:10px;padding-left:2px;
+  }
+  .sidebar-nav{list-style:none;}
+  .sidebar-nav li{margin-bottom:2px;}
+  .sidebar-nav a{
+    display:flex;align-items:center;gap:8px;
+    padding:7px 10px;border-radius:7px;
+    font-size:0.86rem;color:var(--mute);
+    transition:background .12s,color .12s;
+  }
+  .sidebar-nav a:hover{background:var(--panel);color:var(--ink);}
+  .sidebar-nav a.active{background:var(--signal-soft);color:#5b9dff;font-weight:500;}
+  .sidebar-nav a .nav-dot{width:5px;height:5px;border-radius:50%;background:currentColor;flex-shrink:0;opacity:0.5;}
+  .sidebar-nav a.active .nav-dot{opacity:1;}
+
+  @media(max-width:900px){
+    .sidebar{display:none;}
+    .page-wrap{padding:0 20px;}
+  }
+
+  /* CONTENT */
+  .content{flex:1;min-width:0;padding:48px 0 96px 56px;}
+  @media(max-width:900px){.content{padding:32px 0 64px;}}
+
+  /* DOC HERO */
+  .doc-hero{margin-bottom:52px;}
+  .doc-eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:'JetBrains Mono',monospace;font-size:0.75rem;
+    font-weight:500;letter-spacing:0.12em;text-transform:uppercase;
+    color:var(--signal);margin-bottom:14px;
+  }
+  .doc-eyebrow::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--signal);box-shadow:0 0 0 3px var(--signal-soft);}
+  .doc-hero h1{font-size:clamp(1.8rem,3vw,2.6rem);margin-bottom:14px;}
+  .doc-hero p{color:var(--mute);font-size:1.02rem;max-width:680px;line-height:1.7;}
+  .doc-hero p strong{color:var(--ink);}
+
+  /* SECTION */
+  .doc-section{
+    padding-top:64px;margin-bottom:0;
+    border-top:1px solid var(--line-soft);
+  }
+  .doc-section:first-of-type{border-top:none;padding-top:0;}
+
+  .section-eyebrow{
+    font-family:'JetBrains Mono',monospace;font-size:0.72rem;
+    letter-spacing:0.12em;text-transform:uppercase;
+    color:var(--signal);margin-bottom:10px;
+    display:flex;align-items:center;gap:8px;
+  }
+  .section-eyebrow::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--signal);}
+
+  .doc-section h2{font-size:1.55rem;margin-bottom:12px;}
+  .doc-section .section-intro{color:var(--mute);font-size:0.97rem;margin-bottom:32px;line-height:1.7;max-width:680px;}
+  .doc-section .section-intro strong{color:var(--ink);}
+
+  /* SUBSECTION */
+  .subsection{margin-bottom:40px;}
+  .subsection h3{font-size:1.1rem;margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+  .subsection h3 .method-tag{
+    font-family:'JetBrains Mono',monospace;font-size:0.7rem;
+    background:var(--signal-soft);color:#5b9dff;
+    border:1px solid var(--signal-line);border-radius:5px;
+    padding:2px 8px;font-weight:500;letter-spacing:0.05em;
+  }
+  .subsection h3 .cli-tag{
+    font-family:'JetBrains Mono',monospace;font-size:0.7rem;
+    background:rgba(95,217,164,0.10);color:var(--good);
+    border:1px solid rgba(95,217,164,0.3);border-radius:5px;
+    padding:2px 8px;font-weight:500;
+  }
+
+  /* STEPS */
+  .steps{list-style:none;margin-bottom:20px;}
+  .steps li{
+    display:flex;align-items:flex-start;gap:14px;
+    padding:10px 0;border-bottom:1px solid var(--line-soft);
+    font-size:0.93rem;color:var(--mute);line-height:1.6;
+  }
+  .steps li:last-child{border-bottom:none;}
+  .steps li strong{color:var(--ink);}
+  .step-n{
+    min-width:24px;height:24px;border-radius:50%;
+    background:var(--signal-soft);border:1px solid var(--signal-line);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'JetBrains Mono',monospace;font-size:0.7rem;
+    color:#5b9dff;flex-shrink:0;margin-top:1px;
+  }
+
+  /* CLI BLOCK */
+  .cli-block{
+    background:var(--panel-2);border:1px solid var(--line);
+    border-radius:10px;margin:16px 0 8px;overflow:hidden;
+  }
+  .cli-bar{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:9px 16px;border-bottom:1px solid var(--line);
+    background:var(--panel);
+  }
+  .cli-bar-label{font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--mute-dim);letter-spacing:0.08em;}
+  .cli-bar-dots{display:flex;gap:5px;}
+  .cli-bar-dots span{width:8px;height:8px;border-radius:50%;}
+  .cli-bar-dots span:nth-child(1){background:#ff5f57;}
+  .cli-bar-dots span:nth-child(2){background:#febc2e;}
+  .cli-bar-dots span:nth-child(3){background:#28c840;}
+  .cli-body{padding:16px 20px;position:relative;}
+  .cli-body pre{
+    font-family:'JetBrains Mono',monospace;font-size:0.85rem;
+    color:#a8d8a8;line-height:1.6;white-space:pre-wrap;word-break:break-all;
+  }
+  .cli-body pre .prompt{color:var(--mute-dim);}
+  .cli-body pre .cmd{color:#e8e8e8;}
+  .cli-body pre .arg{color:#5b9dff;}
+  .cli-body pre .comment{color:var(--mute-dim);font-style:italic;}
+  .copy-btn{
+    position:absolute;top:12px;right:14px;
+    font-family:'JetBrains Mono',monospace;font-size:0.72rem;
+    color:var(--mute-dim);background:var(--panel);
+    border:1px solid var(--line);border-radius:5px;
+    padding:4px 10px;cursor:pointer;transition:color .15s,border-color .15s;
+  }
+  .copy-btn:hover{color:var(--ink);border-color:var(--mute-dim);}
+  .cli-note{font-size:0.82rem;color:var(--mute-dim);margin-top:6px;font-style:italic;}
+
+  /* INFO BOX */
+  .info-box{
+    display:flex;gap:12px;
+    background:var(--signal-soft);border:1px solid var(--signal-line);
+    border-radius:9px;padding:14px 16px;margin:20px 0;
+    font-size:0.89rem;color:var(--mute);line-height:1.6;
+  }
+  .info-box strong{color:#5b9dff;}
+  .info-box-icon{font-size:1rem;flex-shrink:0;margin-top:1px;}
+
+  .warn-box{
+    display:flex;gap:12px;
+    background:rgba(240,168,48,0.10);border:1px solid rgba(240,168,48,0.30);
+    border-radius:9px;padding:14px 16px;margin:20px 0;
+    font-size:0.89rem;color:var(--mute);line-height:1.6;
+  }
+  .warn-box strong{color:var(--warn);}
+  .warn-box-icon{font-size:1rem;flex-shrink:0;margin-top:1px;}
+
+  /* CLI REF TABLE */
+  .cli-table-wrap{overflow-x:auto;margin:20px 0;}
+  .cli-table{width:100%;border-collapse:collapse;font-size:0.88rem;}
+  .cli-table th{
+    text-align:left;padding:10px 14px;
+    background:var(--panel);border:1px solid var(--line);
+    font-family:'JetBrains Mono',monospace;font-size:0.74rem;
+    letter-spacing:0.06em;color:var(--mute-dim);font-weight:500;
+  }
+  .cli-table td{
+    padding:11px 14px;border:1px solid var(--line-soft);
+    vertical-align:top;color:var(--mute);line-height:1.5;
+  }
+  .cli-table tr:hover td{background:var(--panel);}
+  .cli-table .cmd-cell{
+    font-family:'JetBrains Mono',monospace;font-size:0.82rem;color:#5b9dff;
+    white-space:nowrap;
+  }
+  .cli-table .success{color:var(--good);font-family:'JetBrains Mono',monospace;font-size:0.8rem;}
+
+  /* FOOTER */
+  .footer{padding:40px 0 56px;border-top:1px solid var(--line-soft);}
+  .footer .wrap{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;max-width:1280px;margin:0 auto;padding:0 32px;}
+  .footer .brand img{width:22px;height:auto;}
+  .footer .brand span{font-size:0.85rem;}
+  .footer-right{text-align:right;}
+  .footer-support{font-size:0.84rem;margin-bottom:6px;}
+  .footer-support a{color:var(--mute);border-bottom:1px solid var(--line);transition:color .15s;}
+  .footer-support a:hover{color:var(--signal);}
+  .fine{color:var(--mute-dim);font-size:0.8rem;}
+  @media(max-width:600px){.footer-right{text-align:left;}}
+
+  /* REVEAL */
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease;}
+  .reveal.in{opacity:1;transform:translateY(0);}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="wrap">
+    <a href="./index.html" class="brand">
+      <img src="data:image/png;base64,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" alt="Codespace logo" />
+      <span>CODESPACE</span>
+    </a>
+    <div class="navlinks">
+      <a href="./index.html#features">Features</a>
+      <a href="./index.html#automations">Automations</a>
+      <a href="./index.html#preview">Interface</a>
+      <a href="./docs.html">Docs</a>
+    </div>
+    <div class="nav-cta">
+      <a href="./download/" class="btn">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg>
+        Download
+      </a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-wrap">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" aria-label="Documentation navigation">
+
+    <div class="sidebar-section">
+      <div class="sidebar-label">Getting Started</div>
+      <ul class="sidebar-nav">
+        <li><a href="#overview" class="active"><span class="nav-dot"></span>Overview</a></li>
+        <li><a href="#cli-setup"><span class="nav-dot"></span>Setting up CLI</a></li>
+      </ul>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-label">Projects</div>
+      <ul class="sidebar-nav">
+        <li><a href="#create-project"><span class="nav-dot"></span>Create a Project</a></li>
+        <li><a href="#import-project"><span class="nav-dot"></span>Import a Project</a></li>
+        <li><a href="#run-project"><span class="nav-dot"></span>Run a Project</a></li>
+        <li><a href="#open-ide"><span class="nav-dot"></span>Open in IDE</a></li>
+        <li><a href="#export-project"><span class="nav-dot"></span>Export to ZIP</a></li>
+        <li><a href="#delete-project"><span class="nav-dot"></span>Delete a Project</a></li>
+      </ul>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-label">Automations</div>
+      <ul class="sidebar-nav">
+        <li><a href="#create-automation"><span class="nav-dot"></span>Create an Automation</a></li>
+        <li><a href="#run-automation"><span class="nav-dot"></span>Run an Automation</a></li>
+        <li><a href="#delete-automation"><span class="nav-dot"></span>Delete an Automation</a></li>
+      </ul>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-label">IDEs</div>
+      <ul class="sidebar-nav">
+        <li><a href="#configure-ide"><span class="nav-dot"></span>Configure an IDE</a></li>
+      </ul>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-label">CLI Reference</div>
+      <ul class="sidebar-nav">
+        <li><a href="#cli-commands"><span class="nav-dot"></span>All Commands</a></li>
+      </ul>
+    </div>
+
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="content">
+
+    <!-- HERO -->
+    <div class="doc-hero reveal" id="overview">
+      <div class="doc-eyebrow">Documentation</div>
+      <h1>How to Organize &amp; Manage Multiple Coding Projects</h1>
+      <p>
+        Codespace is a free Windows desktop app that helps you <strong>organize project files and folders</strong>,
+        manage multiple coding projects simultaneously — in <strong>Python, Java, JavaScript, C++, C, HTML</strong> or any other language —
+        and automate repetitive tasks on Windows, all from one control panel.
+        This guide covers every feature with step-by-step instructions and CLI commands.
+      </p>
+    </div>
+
+    <!-- ==========================================
+         GETTING STARTED — CLI SETUP
+    ========================================== -->
+    <section class="doc-section reveal" id="cli-setup">
+      <div class="section-eyebrow">Getting Started</div>
+      <h2>Setting up the CLI Backend</h2>
+      <p class="section-intro">
+        Codespace ships with a built-in CLI that lets you manage multiple coding projects directly from your terminal —
+        no matter which directory you're in. Setting it up takes two steps.
+      </p>
+
+      <div class="subsection">
+        <h3>Add Codespace to your System PATH</h3>
+        <ol class="steps">
+          <li><span class="step-n">1</span><span>Copy the full path of your Codespace installation directory.</span></li>
+          <li><span class="step-n">2</span><span>Open <strong>System Environment Variables</strong> on Windows and add the path to the <strong>Path</strong> variable.</span></li>
+          <li><span class="step-n">3</span><span>Open a new terminal window. You can now run <code class="mono" style="background:var(--panel);padding:1px 6px;border-radius:4px;font-size:0.85em;">codespace</code> commands from any directory.</span></li>
+        </ol>
+
+        <div class="info-box">
+          <span class="info-box-icon">ℹ️</span>
+          <span>Every successfully executed CLI command outputs <strong>"success."</strong> at the end of its response when there are no errors.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         PROJECTS
+    ========================================== -->
+    <section class="doc-section reveal" id="create-project">
+      <div class="section-eyebrow">Projects</div>
+      <h2>Organize Project Files and Folders</h2>
+      <p class="section-intro">
+        Managing a proper <strong>software project folder structure</strong> is the foundation of any good workflow.
+        Codespace stores your project metadata so you can manage multiple coding projects from one place —
+        without hunting through Windows Explorer every time.
+      </p>
+
+      <!-- Create -->
+      <div class="subsection">
+        <h3>Create a Project <span class="method-tag">GUI</span> <span class="cli-tag">CLI</span></h3>
+        <p style="font-size:0.9rem;color:var(--mute);margin-bottom:16px;line-height:1.6;">
+          When you create a project, Codespace records its <strong>root directory</strong> (all files and folders used in the project)
+          and its <strong>source directory</strong> (<code class="mono" style="font-size:0.85em;">src</code> — only your project files,
+          and where imported projects land). This gives Codespace a clean <strong>software project directory structure</strong> to work from.
+        </p>
+
+        <ol class="steps">
+          <li><span class="step-n">1</span><span>Open Codespace.</span></li>
+          <li><span class="step-n">2</span><span>Click the <strong>Add</strong> button.</span></li>
+          <li><span class="step-n">3</span><span>Enter a <strong>Project name</strong>.</span></li>
+          <li><span class="step-n">4</span><span>Choose the <strong>Root directory</strong> — the folder that contains every file and folder used in the project.</span></li>
+          <li><span class="step-n">5</span><span>Choose the <strong>Source directory</strong> (<code class="mono" style="font-size:0.85em;">src</code>) — the folder containing only your project's code files, and where imported projects will be copied.</span></li>
+          <li><span class="step-n">6</span><span>Enter the <strong>Command Prompt command</strong> to run the project, including a <code class="mono" style="font-size:0.85em;">cd</code> command to change into the root or source directory first.</span></li>
+          <li><span class="step-n">7</span><span>Click <strong>OK</strong> to add the project.</span></li>
+        </ol>
+
+        <div class="cli-block">
+          <div class="cli-bar">
+            <div class="cli-bar-dots"><span></span><span></span><span></span></div>
+            <span class="cli-bar-label">CLI — Command Prompt</span>
+          </div>
+          <div class="cli-body">
+            <pre><span class="prompt">C:\&gt; </span><span class="cmd">codespace create </span><span class="arg">&lt;name&gt; &lt;rootDir&gt; &lt;srcDir&gt; &lt;runCommand&gt;</span>
+
+<span class="comment"># Example — Python project</span>
+<span class="prompt">C:\&gt; </span><span class="cmd">codespace create </span><span class="arg">MyPythonApp "C:\Projects\MyPythonApp" "C:\Projects\MyPythonApp\src" "cd C:\Projects\MyPythonApp && python main.py"</span></pre>
+            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+          </div>
+        </div>
+        <p class="cli-note">Works for any language — Python, Java, JavaScript, C++, C, HTML, and more.</p>
+      </div>
+    </section>
+
+    <!-- Import -->
+    <section class="doc-section reveal" id="import-project">
+      <div class="section-eyebrow">Projects</div>
+      <h2>Import a Project</h2>
+      <p class="section-intro">
+        When <strong>handling multiple projects simultaneously</strong>, you often need to copy one project's files into another.
+        Codespace's import feature copies all files from one project's source folder into another project's <code class="mono" style="font-size:0.9em;">src</code> directory.
+      </p>
+
+      <div class="subsection">
+        <h3>Import via GUI <span class="method-tag">GUI</span> <span class="cli-tag">CLI</span></h3>
+        <ol class="steps">
+          <li><span class="step-n">1</span><span>Open Codespace.</span></li>
+          <li><span class="step-n">2</span><span>Click on the <strong>destination project</strong> (the one you want to import files into).</span></li>
+          <li><span class="step-n">3</span><span>The project dashboard will open.</span></li>
+          <li><span class="step-n">4</span><span>Click <strong>Import Project</strong>.</span></li>
+          <li><span class="step-n">5</span><span>Select the <strong>project to import from</strong>. All its files will be copied into the destination project's source folder.</span></li>
+        </ol>
+
+        <div class="cli-block">
+          <div class="cli-bar">
+            <div class="cli-bar-dots"><span></span><span></span><span></span></div>
+            <span class="cli-bar-label">CLI — Command Prompt</span>
+          </div>
+          <div class="cli-body">
+            <pre><span class="prompt">C:\&gt; </span><span class="cmd">codespace import </span><span class="arg">&lt;destinationProjectName&gt; &lt;importingProjectName&gt;</span></pre>
+            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Run -->
+    <section class="doc-section reveal" id="run-project">
+      <div class="section-eyebrow">Projects</div>
+      <h2>Run a Project</h2>
+      <p class="section-intro">Run any project using the command you configured at setup — no need to navigate to its folder manually.</p>
+
+      <div class="subsection">
+        <h3>Run via GUI <span class="method-tag">GUI</span> <span class="cli-tag">CLI</span></h3>
+        <ol class="steps">
+          <li><span class="step-n">1</span><span>Open Codespace.</span></li>
+          <li><span class="step-n">2</span><span>Click on the project you want to run.</span></li>
+          <li><span class="step-n">3</span><span>The project dashboard will open.</span></li>
+          <li><span class="step-n">4</span><span>Click <strong>Settings</strong>.</span></li>
+          <li><span class="step-n">5</span><span>Click <strong>Run</strong>.</span></li>
+        </ol>
+
+        <div class="cli-block">
+          <div class="cli-bar">
+            <div class="cli-bar-dots"><span></span><span></span><span></span></div>
+            <span class="cli-bar-label">CLI — Command Prompt</span>
+          </div>
+          <div class="cli-body">
+            <pre><span class="prompt">C:\&gt; </span><span class="cmd">codespace run </span><span class="arg">&lt;projectName&gt;</span></pre>
+            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Open in IDE -->
+    <section class="doc-section reveal" id="open-ide">
+      <div class="section-eyebrow">Projects</div>
+      <h2>Open a Project in Your IDE</h2>
+      <p class="section-intro">
+        Open any project directly in whichever IDE you have configured — VS Code, JetBrains IDEs, Sublime Text, or any other editor.
+        Works with any language: Python, Java, JavaScript, C++, C, HTML, and more.
+      </p>
+
+      <div class="subsection">
+        <h3>Open via GUI <span class="method-tag">GUI</span></h3>
+        <ol class="steps">
+          <li><span class="step-n">1</span><span>Open Codespace.</span></li>
+          <li><span class="step-n">2</span><span>Click on the project you want to open.</span></li>
+          <li><span class="step-n">3</span><span>The project dashboard will open.</span></li>
+          <li><span class="step-n">4</span><span>Click <strong>Open in IDE</strong>.</span></li>
+          <li><span class="step-n">5</span><span>Select your IDE from the list of configured editors.</span></li>
+        </ol>
+
+        <div class="warn-box">
+          <span class="warn-box-icon">⚠️</span>
+          <span><strong>No CLI command available</strong> for this feature. Use the GUI to open projects in your IDE.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Export -->
+    <section class="doc-section reveal" id="export-project">
+      <div class="section-eyebrow">Projects</div>
+      <h2>Export a Project to ZIP</h2>
+      <p class="section-intro">
+        Package any project's <code class="mono" style="font-size:0.9em;">src</code> directory as a <strong>.zip file</strong> — useful for sharing,
+        backing up, or moving a project. The ZIP is saved in the same folder as the project's root directory.
+      </p>
+
+      <div class="subsection">
+        <h3>Export via GUI <span class="method-tag">GUI</span> <span class="cli-tag">CLI</span></h3>
+        <ol class="steps">
+          <li><span class="step-n">1</span><span>Open Codespace.</span></li>
+          <li><span class="step-n">2</span><span>Click on the project you want to export.</span></li>
+          <li><span class="step-n">3</span><span>The project dashboard will open.</span></li>
+          <li><span class="step-n">4</span><span>Click <strong>Settings</strong>.</span></li>
+          <li><span class="step-n">5</span><span>Click <strong>Export to ZIP</strong>. The ZIP is saved alongside the project's root directory.</span></li>
+        </ol>
+
+        <div class="cli-block">
+          <div class="cli-bar">
+            <div class="cli-bar-dots"><span></span><span></span><span></span></div>
+            <span class="cli-bar-label">CLI — Command Prompt</span>
+          </div>
+          <div class="cli-body">
+            <pre><span class="prompt">C:\&gt; </span><span class="cmd">codespace exportZIP </span><span class="arg">&lt;projectName&gt; &lt;destinationFolder&gt;</span>
+
+<span class="comment"># Example</span>
+<span class="prompt">C:\&gt; </span><span class="cmd">codespace exportZIP </span><span class="arg">MyPythonApp "C:\Backups"</span></pre>
+            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Delete project -->
+    <section class="doc-section reveal" id="delete-project">
+      <div class="section-eyebrow">Projects</div>
+      <h2>Delete a Project</h2>
+      <p class="section-intro">Remove a project from Codespace. This removes the project entry — it does <em>not</em> delete files from your disk.</p>
+
+      <div class="subsection">
+        <h3>Delete via GUI <span class="method-tag">GUI</span> <span class="cli-tag">CLI</span></h3>
+        <ol class="steps">
+          <li><span class="step-n">1</span><span>Open Codespace.</span></li>
+          <li><span class="step-n">2</span><span>Click on the project you want to delete.</span></li>
+          <li><span class="step-n">3</span><span>The project dashboard will open.</span></li>
+          <li><span class="step-n">4</span><span>Click <strong>Settings</strong>.</span></li>
+          <li><span class="step-n">5</span><span>Click <strong>Delete Project</strong>.</span></li>
+        </ol>
+
+        <div class="cli-block">
+          <div class="cli-bar">
+            <div class="cli-bar-dots"><span></span><span></span><span></span></div>
+            <span class="cli-bar-label">CLI — Command Prompt</span>
+          </div>
+          <div class="cli-body">
+            <pre><span class="prompt">C:\&gt; </span><span class="cmd">codespace delete </span><span class="arg">&lt;projectName&gt;</span></pre>
+            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         AUTOMATIONS
+    ========================================== -->
+    <section class="doc-section reveal" id="create-automation">
+      <div class="section-eyebrow">Automations</div>
+      <h2>Automate Tasks in Windows</h2>
+      <p class="section-intro">
+        Automations let you <strong>automate tasks on your computer</strong> by attaching a Command Prompt command to a trigger action —
+        before or after a project runs. You can <strong>automate tasks with Python</strong>, bash, Node.js, PowerShell, or any language
+        that runs natively on Windows. This is the most powerful way to reduce repetitive work when
+        <strong>handling multiple projects simultaneously</strong>.
+      </p>
+
+      <div class="subsection">
+        <h3>Create an Automation <span class="method-tag">GUI</span> <span class="cli-tag">CLI</span></h3>
+        <ol class="steps">
+          <li><span class="step-n">1</span><span>Open Codespace.</span></li>
+          <li><span class="step-n">2</span><span>Select the <strong>Automations</strong> tab.</span></li>
+          <li><span class="step-n">3</span><span>Click <strong>Add</strong>.</span></li>
+          <li><span class="step-n">4</span><span>Enter an <strong>Automation name</strong>.</span></li>
+          <li><span class="step-n">5</span><span>Enter the name of the <strong>project or automation</strong> this should run before or after. If it triggers after a project runs, enter the project name.</span></li>
+          <li><span class="step-n">6</span><span>Check <strong>After Action</strong> to <code class="mono" style="font-size:0.85em;">true</code> if this automation runs <em>after</em> the action, or uncheck it to run <em>before</em>.</span></li>
+          <li><span class="step-n">7</span><span>Enter the <strong>Command Prompt command</strong> to run, including a <code class="mono" style="font-size:0.85em;">cd</code> to navigate to the automation directory.</span></li>
+          <li><span class="step-n">8</span><span>Click <strong>OK</strong>.</span></li>
+        </ol>
+
+        <div class="cli-block">
+          <div class="cli-bar">
+            <div class="cli-bar-dots"><span></span><span></span><span></span></div>
+            <span class="cli-bar-label">CLI — Command Prompt</span>
+          </div>
+          <div class="cli-body">
+            <pre><span class="prompt">C:\&gt; </span><span class="cmd">codespace automate </span><span class="arg">&lt;automationName&gt; &lt;command&gt; &lt;afterAction: true|false&gt; &lt;actionName&gt;</span>
+
+<span class="comment"># Example — run a Python cleanup script after "MyApp" runs</span>
+<span class="prompt">C:\&gt; </span><span class="cmd">codespace automate </span><span class="arg">Cleanup "cd C:\Scripts && python cleanup.py" true MyApp</span></pre>
+            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <h3>Run on Startup / Shutdown</h3>
+        <p style="font-size:0.9rem;color:var(--mute);line-height:1.6;margin-bottom:14px;">
+          To automate tasks every time Codespace opens or closes, assign an automation in Settings:
+        </p>
+        <ol class="steps">
+          <li><span class="step-n">1</span><span>Open Codespace.</span></li>
+          <li><span class="step-n">2</span><span>Go to the <strong>Settings</strong> tab.</span></li>
+          <li><span class="step-n">3</span><span>Choose your automation under <strong>Run on Open</strong> or <strong>Run on Close</strong>.</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Run automation -->
+    <section class="doc-section reveal" id="run-automation">
+      <div class="section-eyebrow">Automations</div>
+      <h2>Run an Automation Manually</h2>
+      <p class="section-intro">Trigger any automation on demand directly from the Automations tab.</p>
+
+      <div class="subsection">
+        <h3>Run via GUI <span class="method-tag">GUI</span> <span class="cli-tag">CLI</span></h3>
+        <ol class="steps">
+          <li><span class="step-n">1</span><span>Open Codespace.</span></li>
+          <li><span class="step-n">2</span><span>Select the <strong>Automations</strong> tab.</span></li>
+          <li><span class="step-n">3</span><span>Click on the automation you want to run.</span></li>
+          <li><span class="step-n">4</span><span>The automation details will appear.</span></li>
+          <li><span class="step-n">5</span><span>Click <strong>Run</strong>.</span></li>
+        </ol>
+
+        <div class="cli-block">
+          <div class="cli-bar">
+            <div class="cli-bar-dots"><span></span><span></span><span></span></div>
+            <span class="cli-bar-label">CLI — Command Prompt</span>
+          </div>
+          <div class="cli-body">
+            <pre><span class="prompt">C:\&gt; </span><span class="cmd">codespace runAutomation </span><span class="arg">&lt;automationName&gt;</span></pre>
+            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Delete automation -->
+    <section class="doc-section reveal" id="delete-automation">
+      <div class="section-eyebrow">Automations</div>
+      <h2>Delete an Automation</h2>
+
+      <div class="subsection">
+        <h3>Delete via GUI <span class="method-tag">GUI</span> <span class="cli-tag">CLI</span></h3>
+        <ol class="steps">
+          <li><span class="step-n">1</span><span>Open Codespace.</span></li>
+          <li><span class="step-n">2</span><span>Select the <strong>Automations</strong> tab.</span></li>
+          <li><span class="step-n">3</span><span>Click on the automation you want to delete.</span></li>
+          <li><span class="step-n">4</span><span>The automation details will appear.</span></li>
+          <li><span class="step-n">5</span><span>Click <strong>Delete</strong>.</span></li>
+        </ol>
+
+        <div class="cli-block">
+          <div class="cli-bar">
+            <div class="cli-bar-dots"><span></span><span></span><span></span></div>
+            <span class="cli-bar-label">CLI — Command Prompt</span>
+          </div>
+          <div class="cli-body">
+            <pre><span class="prompt">C:\&gt; </span><span class="cmd">codespace deleteAutomation </span><span class="arg">&lt;automationName&gt;</span></pre>
+            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         IDEs
+    ========================================== -->
+    <section class="doc-section reveal" id="configure-ide">
+      <div class="section-eyebrow">IDEs</div>
+      <h2>Configure an IDE</h2>
+      <p class="section-intro">
+        Register any installed editor so Codespace can open projects directly in it.
+        Supports VS Code, JetBrains IDEs (IntelliJ, PyCharm, WebStorm), Sublime Text, and any other editor with a command-line interface.
+      </p>
+
+      <div class="subsection">
+        <h3>Add an IDE <span class="method-tag">GUI</span></h3>
+        <ol class="steps">
+          <li><span class="step-n">1</span><span>Open Codespace.</span></li>
+          <li><span class="step-n">2</span><span>Select the <strong>IDEs</strong> tab.</span></li>
+          <li><span class="step-n">3</span><span>Click <strong>Configure IDE</strong>.</span></li>
+          <li><span class="step-n">4</span><span>Choose the <strong>.exe file path</strong> of the IDE you want to add.</span></li>
+          <li><span class="step-n">5</span><span>Enter a <strong>name</strong> for the IDE.</span></li>
+          <li><span class="step-n">6</span><span>If the IDE uses a non-standard open command (other than <code class="mono" style="font-size:0.85em;">&lt;exe&gt; &lt;projectFolder&gt;</code>), enter the full command — replacing the exe path with <code class="mono" style="font-size:0.85em;">&lt;Path&gt;</code> and the project folder with <code class="mono" style="font-size:0.85em;">&lt;Project&gt;</code> (case-sensitive).</span></li>
+          <li><span class="step-n">7</span><span>Click <strong>OK</strong>.</span></li>
+        </ol>
+
+        <div class="warn-box">
+          <span class="warn-box-icon">⚠️</span>
+          <span><strong>No CLI command available</strong> for configuring IDEs. Use the GUI only.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         CLI REFERENCE
+    ========================================== -->
+    <section class="doc-section reveal" id="cli-commands">
+      <div class="section-eyebrow">CLI Reference</div>
+      <h2>CLI Commands for Managing Multiple Coding Projects</h2>
+      <p class="section-intro">
+        The Codespace CLI lets you manage multiple coding projects in <strong>Python, Java, JavaScript, C++, C</strong>, HTML, or any language
+        directly from your terminal. Every command outputs <code class="mono" style="font-size:0.9em;background:var(--panel);padding:1px 6px;border-radius:4px;">success.</code> on successful execution.
+      </p>
+
+      <div class="cli-table-wrap">
+        <table class="cli-table">
+          <thead>
+            <tr>
+              <th>Command</th>
+              <th>Description</th>
+              <th>Arguments</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="cmd-cell">codespace create</td>
+              <td>Create and register a new project</td>
+              <td><code class="mono" style="font-size:0.8em;">&lt;name&gt; &lt;rootDir&gt; &lt;srcDir&gt; &lt;runCmd&gt;</code></td>
+            </tr>
+            <tr>
+              <td class="cmd-cell">codespace delete</td>
+              <td>Remove a project from Codespace</td>
+              <td><code class="mono" style="font-size:0.8em;">&lt;name&gt;</code></td>
+            </tr>
+            <tr>
+              <td class="cmd-cell">codespace run</td>
+              <td>Run a project using its configured command</td>
+              <td><code class="mono" style="font-size:0.8em;">&lt;name&gt;</code></td>
+            </tr>
+            <tr>
+              <td class="cmd-cell">codespace import</td>
+              <td>Copy files from one project's src into another</td>
+              <td><code class="mono" style="font-size:0.8em;">&lt;destination&gt; &lt;source&gt;</code></td>
+            </tr>
+            <tr>
+              <td class="cmd-cell">codespace exportZIP</td>
+              <td>Export a project's src folder as a .zip</td>
+              <td><code class="mono" style="font-size:0.8em;">&lt;name&gt; &lt;destinationFolder&gt;</code></td>
+            </tr>
+            <tr>
+              <td class="cmd-cell">codespace get</td>
+              <td>Retrieve a project's metadata JSON (ready to import)</td>
+              <td><code class="mono" style="font-size:0.8em;">&lt;name&gt;</code></td>
+            </tr>
+            <tr>
+              <td class="cmd-cell">codespace automate</td>
+              <td>Create an automation tied to a project or action</td>
+              <td><code class="mono" style="font-size:0.8em;">&lt;name&gt; &lt;cmd&gt; &lt;afterAction&gt; &lt;actionName&gt;</code></td>
+            </tr>
+            <tr>
+              <td class="cmd-cell">codespace runAutomation</td>
+              <td>Manually trigger an automation</td>
+              <td><code class="mono" style="font-size:0.8em;">&lt;automationName&gt;</code></td>
+            </tr>
+            <tr>
+              <td class="cmd-cell">codespace deleteAutomation</td>
+              <td>Delete an automation</td>
+              <td><code class="mono" style="font-size:0.8em;">&lt;automationName&gt;</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="info-box" style="margin-top:24px;">
+        <span class="info-box-icon">💡</span>
+        <span>Retrieve a project's metadata with <strong>codespace get &lt;name&gt;</strong> — it outputs a JSON object ready to import into another Codespace instance.</span>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="brand">
+      <img src="data:image/png;base64,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" alt="Codespace logo" />
+      <span>CODESPACE</span>
+    </div>
+    <div class="footer-right">
+      <div class="footer-support mono">Need help? <a href="mailto:codespacesupport@gmail.com">codespacesupport@gmail.com</a></div>
+      <div class="fine mono"><u><a href="LICENSE.txt">© 2026 Codespace</a></u>. Built for developers who'd rather be coding.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  /* Scroll reveal */
+  const revealEls = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    const obs = new IntersectionObserver(entries=>{
+      entries.forEach(e=>{ if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);} });
+    },{threshold:0.08});
+    revealEls.forEach(el=>obs.observe(el));
+  } else {
+    revealEls.forEach(el=>el.classList.add('in'));
+  }
+
+  /* Active sidebar link on scroll */
+  const sections = document.querySelectorAll('[id]');
+  const sidebarLinks = document.querySelectorAll('.sidebar-nav a');
+  const observer = new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        sidebarLinks.forEach(a=>a.classList.remove('active'));
+        const active = document.querySelector(`.sidebar-nav a[href="#${entry.target.id}"]`);
+        if(active) active.classList.add('active');
+      }
+    });
+  },{rootMargin:'-30% 0px -60% 0px'});
+  sections.forEach(s=>observer.observe(s));
+
+  /* Copy CLI code */
+  function copyCode(btn){
+    const pre = btn.closest('.cli-body').querySelector('pre');
+    const text = pre.innerText.replace(/^C:\\> /gm,'').trim();
+    navigator.clipboard.writeText(text).then(()=>{
+      btn.textContent='Copied!';
+      setTimeout(()=>btn.textContent='Copy', 1800);
+    });
+  }
+</script>
+
+</body>
+</html>
